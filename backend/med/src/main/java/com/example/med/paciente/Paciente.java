@@ -1,4 +1,4 @@
-package com.example.med.medico;
+package com.example.med.paciente;
 
 import com.example.med.endereco.Endereco;
 import jakarta.persistence.*;
@@ -7,30 +7,30 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
+@Table(name = "pacientes")
+@Entity(name = "Paciente")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Medico {
+
+public class Paciente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String email;
-    private String crm;
-
-    @Enumerated(EnumType.STRING)
-    private Especialidade especialidade;
+    private String telefone;
+    private String cpf;
 
     @Embedded
     private Endereco endereco;
 
-    public Medico(DadosCadastroMedico dados) {
+    public Paciente(DadosCadastroPaciente dados) {
         this.nome = dados.nome();
         this.email = dados.email();
-        this.crm = dados.crm();
+        this.cpf = dados.cpf();
+        this.telefone = dados.telefone();
         this.endereco = new Endereco(dados.endereco());
     }
 }

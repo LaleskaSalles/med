@@ -1,8 +1,8 @@
 package com.example.med.controller;
 
-import com.example.med.medico.DadosCadastroMedico;
-import com.example.med.medico.Medico;
-import com.example.med.medico.MedicoRepository;
+import com.example.med.paciente.DadosCadastroPaciente;
+import com.example.med.paciente.Paciente;
+import com.example.med.paciente.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,16 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("medicos")
-public class MedicoController {
+@RequestMapping("/pacientes")
+public class PacienteController {
 
     @Autowired
-    private MedicoRepository repository;
+    private PacienteRepository repository;
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroMedico dados){
-        repository.save(new Medico(dados));
+    public void cadastrar(@RequestBody DadosCadastroPaciente dados){
+        repository.save(new Paciente(dados));
     }
-
 }
