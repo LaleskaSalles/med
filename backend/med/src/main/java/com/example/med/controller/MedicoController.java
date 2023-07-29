@@ -1,9 +1,6 @@
 package com.example.med.controller;
 
-import com.example.med.medico.DadosCadastroMedico;
-import com.example.med.medico.DadosListaMedico;
-import com.example.med.medico.Medico;
-import com.example.med.medico.MedicoRepository;
+import com.example.med.medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,7 +25,21 @@ public class MedicoController {
 
     @GetMapping
     public Page<DadosListaMedico> listaMedico(Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListaMedico::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListaMedico::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizarMedico dados){
+        var medico = repository.getReferenceById(dados.id());
+        medico.atualizarInfo(dados);
+    }
+
+    @DeleteMapping
+    @Transactional
+    public void desativar(@PathVariable Long id){
+        var medico = repository.getReferenceById(id);
+        medico.desativar();
     }
 
 }
