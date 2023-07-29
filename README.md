@@ -20,6 +20,7 @@ The central idea of Med is to implement a management system for doctors and pati
 * Maven: Gerenciador de dependências utilizado para organizar o projeto e suas bibliotecas.
 * IntelliJ IDEA: Ambiente de desenvolvimento integrado (IDE) utilizado para escrever, testar e depurar o código.
 * Postman: Ferramenta para testar as APIs RESTful desenvolvidas, permitindo verificar a correta interação entre as diferentes partes do sistema.
+* MySQL: Sistema de gerenciamento de banco de dados relacional utilizado para armazenar dados.
 
   #
 
@@ -28,6 +29,7 @@ The central idea of Med is to implement a management system for doctors and pati
 * Maven: Dependency manager used to organize the project and its libraries.
 * IntelliJ IDEA: An integrated development environment (IDE) used to write, test, and debug the code.
 * Postman: A tool for testing the developed RESTful APIs, allowing verification of correct interaction between different parts of the system.
+* MySQL: Relational database management system used to store data.
 
 # Funcionalidades/Features
 * O projeto Med inclui as seguintes funcionalidades:
